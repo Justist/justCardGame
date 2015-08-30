@@ -5,18 +5,21 @@
 #include <cstring>
 #include <map>
 #include "card.h"
+#include "gamestate.h"
 
 using namespace std;
 
 class Collection {
 	private:
-		//enum cards {test1, test2, test3};
-		map<int,string> cards;
+		map<Card,void(*)(GameState)> cards;
 	public:
-		Collection(map<int,string> m) : cards(m) {populate();}
+		Collection(map<Card,void(*)(GameState)> m) : cards(m) {populate();} //input is null, just to call populate always at initialisation
 		void populate();
 		Card defineCard(int number);
 		void drawCard(int number);
+		
+		// Card functions
+		void Rock(GameState);
 };
 
 #endif

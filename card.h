@@ -10,6 +10,9 @@ class Card {
 	protected:
 		int number;
 		string text;
+		
+	public:
+		Card(int n, string t) : number(n), text(t) {}
 };
 
 #endif
