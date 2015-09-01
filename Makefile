@@ -1,4 +1,4 @@
-OBJS = main.o board.o collection.o card.o gamestate.o
+OBJS = main.o board.o collection.o gamestate.o error.o
 CC = g++
 DEBUG = -ggdb
 STD = -std=c++11
@@ -13,14 +13,17 @@ all : $(OBJS)
 main.o : main.cpp board.h collection.h gamestate.h
 	$(CC) $(CFLAGS) main.cpp
 
-board.o : board.h board.cpp
+board.o : board.h board.cpp gamestate.h
 	$(CC) $(CFLAGS) board.cpp
 	
-collection.o : collection.h collection.cpp card.h
+collection.o : collection.h collection.cpp card.h gamestate.h
 	$(CC) $(CFLAGS) collection.cpp
 
-gamestate.o : gamestate.h gamestate.cpp
+gamestate.o : gamestate.h gamestate.cpp error.h
 	$(CC) $(CFLAGS) gamestate.cpp
+
+error.o : error.h error.cpp
+	$(CC) $(CFLAGS) error.cpp
 
 clean:
 	@rm *.o *~ $(EXE) 2>/dev/null || true

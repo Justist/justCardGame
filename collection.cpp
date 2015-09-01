@@ -5,5 +5,6 @@ void Collection::populate() {
 }
 
 void Collection::Rock(GameState state) {
-	
+	state.getLives(livesOne, livesTwo);
+	//error.printVars({livesOne, livesTwo});
 }

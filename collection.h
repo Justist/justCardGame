@@ -12,8 +12,10 @@ using namespace std;
 class Collection {
 	private:
 		map<Card,void(*)(GameState)> cards;
+		int livesOne, livesTwo; // Technically global variables
+		Error error;
 	public:
-		Collection(map<Card,void(*)(GameState)> m) : cards(m) {populate();} //input is null, just to call populate always at initialisation
+		Collection() {populate();}
 		void populate();
 		Card defineCard(int number);
 		void drawCard(int number);

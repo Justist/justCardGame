@@ -7,7 +7,8 @@ using namespace std;
 
 int main() {
 	Board board(10, 20);
-	GameState gamestate();
-	Collection collection();
+	GameState gamestate;
+	Collection collection;
+	collection.Rock(gamestate);
 	return 0;
 }

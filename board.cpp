@@ -22,3 +22,7 @@ void Board::drawBoard(int height, int length) {
 	drawBoardBorder(height, length);
 	drawBoardLine(length);
 }
+
+void Board::printLives(GameState state) {
+	return;
+}
