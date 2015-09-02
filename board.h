@@ -8,13 +8,13 @@ using namespace std;
 
 class Board {
 	private:
-		int height;
-		int length;
+		int boardHeight;
+		int boardLength;
 	public:
-		Board(int h, int l) : height(h), length(l) {drawBoard(height, length);}
-		void drawBoardLine(int length);
-		void drawBoardBorder(int height, int length);
-		void drawBoard(int height, int length);
+		Board(int h, int l) : boardHeight(h), boardLength(l) {drawBoard();}
+		void drawHorizontalLine();
+		void drawVerticalLines();
+		void drawBoard();
 		void printLives(GameState state);
 };
 

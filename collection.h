@@ -13,7 +13,6 @@ class Collection {
 	private:
 		map<Card,void(*)(GameState)> cards;
 		int livesOne, livesTwo; // Technically global variables
-		Error error;
 	public:
 		Collection() {populate();}
 		void populate();

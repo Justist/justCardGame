@@ -6,6 +6,7 @@
 
 using namespace std;
 
+template<class T>
 class Error {
 	
 	private:
@@ -13,9 +14,10 @@ class Error {
 	public:
 		Error() {}
 		
-		template<class T>
 		void printVars(initializer_list<T> list);
 	
 };
+
+#include "error.cpp"
 
 #endif
