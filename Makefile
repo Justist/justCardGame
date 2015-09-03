@@ -1,7 +1,7 @@
-OBJS = main.o board.o collection.o gamestate.o #error.o
+OBJS = main.o board.o collection.o gamestate.o card.o #error.o
 CC = g++
 DEBUG = -ggdb
-STD = -std=c++11
+STD = -std=c++0x
 ERROR = -Wall -Wextra
 CFLAGS = $(ERROR) $(STD) -c $(DEBUG)
 LFLAGS = $(ERROR)
@@ -21,6 +21,9 @@ collection.o : collection.h collection.cpp card.h gamestate.h
 
 gamestate.o : gamestate.h gamestate.cpp error.h
 	$(CC) $(CFLAGS) gamestate.cpp
+
+card.o : card.h card.cpp
+	$(CC) $(CFLAGS) card.cpp
 
 #error.o : error.h error.cpp
 #	$(CC) $(CFLAGS) error.cpp

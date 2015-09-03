@@ -21,6 +21,7 @@ class Collection {
 		
 		// Card functions
 		void Rock(GameState);
+		void Imp(GameState);
 };
 
 #endif

@@ -10,14 +10,15 @@ void Board::drawHorizontalLine() {
 void Board::drawVerticalLines() {
 	int spaceBetweenLines = (boardLength - 6) / 5, k = 0;
 	for(int i = 0; i < boardHeight; i++) {
-		if(i == (boardHeight / 2) + 1) {drawHorizontalLine();}
+		if(i == (boardHeight / 2)) {drawHorizontalLine();}
 		else {
 			cout << "|";
 			for(int j = 0; j < boardLength - 2; j++) {
-				if(j % spaceBetweenLines == 0 + k) {cout << "|";}
-				else {cout << " ";}
+				if(k == spaceBetweenLines) {cout << "|"; k = 0;}
+				else {cout << " "; k++;}
 			}
 			cout << "|" << endl;
+			k = 0;
 		}
 	}
 }
@@ -28,6 +29,7 @@ void Board::drawBoard() {
 							: boardHeight 
 					  : boardHeight;
 					  
+
 	boardLength = (boardLength % 5 != 1) ?
 							(boardLength - ((boardLength % 5) - 1) < 21) ? 21
 							: boardLength - ((boardLength % 5) - 1)
@@ -39,6 +41,11 @@ void Board::drawBoard() {
 }
 
 void Board::printLives(GameState state) {
-	//TODO
-	return;
+	int one, two;
+	state.getLives(one, two);
+}
+
+void Board::drawMinions(GameState state, bool one) {
+	vector<Card> minions;
+	state.getMinions(minions, one);
 }
