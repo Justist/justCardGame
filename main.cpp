@@ -23,8 +23,13 @@ int playGame(GameState state, Collection coll) {
 }
 
 int main() {
-	Board board(10, 20);
+	int height, length;
+	cout << "Board height is: " << endl;
+	cin >> height;
+	cout << "Board length is: " << endl;
+	cin >> length;
 	GameState gamestate;
+	Board board(height, length, gamestate);
 	Collection collection;
 	//collection.Rock(gamestate);
 	

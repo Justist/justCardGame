@@ -10,13 +10,16 @@ class Board {
 	private:
 		int boardHeight;
 		int boardLength;
+		GameState state;
 	public:
-		Board(int h, int l) : boardHeight(h), boardLength(l) {drawBoard();}
+		Board(int h, int l, GameState s) : boardHeight(h), boardLength(l), state(s) {drawBoard();}
 		void drawHorizontalLine();
 		void drawVerticalLines();
 		void drawBoard();
 		void drawMinions(GameState state, bool one);
 		void printLives(GameState state);
+		
+		void drawSlot(int slot);
 };
 
 #endif
