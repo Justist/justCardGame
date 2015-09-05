@@ -12,17 +12,20 @@ To download and compile the code, the following tools are required:
 # Downloading the source
 
 To download the source via Git one opens a terminal and gives the following commands:
+
   $ git clone https://github.com/Justist/justCardGame.git
   $ cd justCardGame
 
 # Compiling the source
 
 To compile the source the following command must be given in the terminal:
+
   $ make all
 
 # Run the program
 
 To run the program the following command must be given in the terminal:
+
   $ ./game
 
 # License
