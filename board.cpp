@@ -8,7 +8,7 @@ void Board::drawHorizontalLine() {
 }
 
 void Board::drawVerticalLines() {
-   int halfHeight = boardHeight / 2, quarterHeight = halfHeight / 2;
+   int halfHeight = boardHeight / 2, quarterHeight = (halfHeight / 2) - 1;
    int heightToDraw = boardHeight - 2, lengthToDraw = boardLength - 2;
 	int spaceBetweenLines = (boardLength - 6) / 5, k = 0;
 	int slot = 1;
@@ -51,12 +51,7 @@ void Board::drawBoard() {
 	drawHorizontalLine();
 }
 
-void Board::printLives(GameState state) {
+void Board::printLives() {
 	int one, two;
 	state.getLives(one, two);
-}
-
-void Board::drawMinions(GameState state, bool one) {
-	vector<Card> minions;
-	state.getMinions(minions, one);
 }

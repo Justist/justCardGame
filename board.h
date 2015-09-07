@@ -16,8 +16,7 @@ class Board {
 		void drawHorizontalLine();
 		void drawVerticalLines();
 		void drawBoard();
-		void drawMinions(GameState state, bool one);
-		void printLives(GameState state);
+		void printLives();
 		
 		void drawSlot(int slot);
 };
