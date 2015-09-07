@@ -17,10 +17,6 @@ void GameState::changeLives(int one, int two) {
 	playerTwoLives -= two;
 }
 
-void GameState::getMinions(vector<Card>& minions, bool one) {
-	minions = cMinions;
-}
-
 void GameState::playMinion(Card minion, int slot) {
 	cMinions[(playerTurn * slot) - 1] = minion;
 }

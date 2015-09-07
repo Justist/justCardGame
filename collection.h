@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstring>
 #include <map>
+
 #include "card.h"
 #include "gamestate.h"
 
@@ -14,14 +15,16 @@ class Collection {
 		map<Card,void(*)(GameState)> cards;
 		int livesOne, livesTwo; // Technically global variables
 	public:
-		Collection() {populate();}
+		Collection(bool first) {if(first) {populate();}}
 		void populate();
-		Card defineCard(int number);
+		//Card defineCard(int number);
 		void drawCard(int number);
 		
 		// Card functions
-		void Rock(GameState);
-		void Imp(GameState);
+		void Rock(GameState&);
+		void Imp(GameState&);
+		
+		//bool updateGameState(GameState);
 };
 
 #endif

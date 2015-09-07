@@ -10,15 +10,18 @@ class Board {
 	private:
 		int boardHeight;
 		int boardLength;
-		GameState state;
 	public:
-		Board(int h, int l, GameState s) : boardHeight(h), boardLength(l), state(s) {drawBoard();}
-		void drawHorizontalLine();
-		void drawVerticalLines();
-		void drawBoard();
-		void printLives();
+		//Board() {}
+		Board(int h, int l, GameState s) : boardHeight(h), boardLength(l) {drawBoard(s);}
 		
-		void drawSlot(int slot);
+		void drawHorizontalLine();
+		void drawVerticalLines(GameState);
+		void drawBoard(GameState);
+		void printLives(GameState);
+		
+		void drawSlot(GameState, int, int);
+		
+		//bool updateGameState(GameState gState);
 };
 
 #endif

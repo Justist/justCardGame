@@ -17,7 +17,14 @@ class GameState {
 		GameState() {initialize();}
 		void getLives(int& one, int& two);
 		void changeLives(int one, int two);
-		void getMinions(vector<Card>& minions, bool one);
+		
+		int getPlayerTurn() {return playerTurn;}
+		void changePlayerTurn();
+		
+		int getTurnsPassed() {return turnsPassed;}
+		void turnOver() {turnsPassed++;}
+		
+		void getMinions(vector<Card>& minions) {minions = cMinions;}
 		void playMinion(Card minion, int slot);
 };
 

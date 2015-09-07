@@ -5,11 +5,11 @@
 
 using namespace std;
 
-int playerTurn(GameState state, Collection coll) { //which players turn is, is in the state
+int playerTurn(GameState& state, Collection& coll) { //which players turn is, is in the state
 	return 1; //if winstate, return 0
 }
 
-int playGame(GameState state, Collection coll) {
+int playGame(GameState& state, Collection& coll) {
 
 	bool somethingPlayableIsImplemented = 0; //TODO!
 
@@ -30,7 +30,7 @@ int main() {
 	cin >> length;
 	GameState gamestate;
 	Board board(height, length, gamestate);
-	Collection collection;
+	Collection collection(true);
 	//collection.Rock(gamestate);
 	
 	if(!playGame(gamestate, collection)) {
