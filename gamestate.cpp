@@ -1,9 +1,9 @@
 #include "gamestate.h"
 
-void GameState::initialize() {
+GameState::GameState() {
 	playerOneLives = playerTwoLives = 30;
 	turnsPassed = 0;
-	playerTurn = 1; // RNG decides in the future
+	playerOneTurn = 1; // RNG decides in the future
 	cMinions = {};
 }
 
@@ -18,5 +18,19 @@ void GameState::changeLives(int one, int two) {
 }
 
 void GameState::playMinion(Card minion, int slot) {
-	cMinions[(playerTurn * slot) - 1] = minion;
+	cMinions[((playerOneTurn * 5) + slot) - 1] = minion;
+}
+
+void GameState::getHandCards(vector<Card>& handCards, bool one) {
+	if(one) {handCards = cHandOne;}
+	else {handCards = cHandTwo;}
+}
+
+void GameState::cycleHand(bool one) {
+	vector<Card> hand;
+	for (i = 0; i < )
+}
+
+void GameState::addHandCard(Card card) {
+	
 }

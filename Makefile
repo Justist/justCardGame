@@ -1,4 +1,4 @@
-OBJS = main.o board.o collection.o gamestate.o card.o #update.o #error.o
+OBJS = main.o board.o collection.o gamestate.o card.o gameplay.o #update.o #error.o
 CC = g++
 DEBUG = -ggdb
 STD = -std=c++0x
@@ -24,6 +24,9 @@ gamestate.o : gamestate.h gamestate.cpp error.h
 
 card.o : card.h card.cpp
 	$(CC) $(CFLAGS) card.cpp
+
+gameplay.o : gameplay.h gameplay.cpp collection.h gamestate.h
+	$(CC) $(CFLAGS) gameplay.cpp
 
 #update.o : update.h update.cpp board.h gamestate.h collection.h
 #	$(CC) $(CFLAGS) update.cpp

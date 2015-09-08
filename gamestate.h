@@ -10,22 +10,28 @@ class GameState {
 
 	private:
 		int playerOneLives, playerTwoLives; // 30 30 initially
-		int playerTurn, turnsPassed; // 1 or 2 | 0 to a lot
-		vector<Card> cMinions; // empty initially
-		void initialize();
-	public:
-		GameState() {initialize();}
-		void getLives(int& one, int& two);
-		void changeLives(int one, int two);
+		bool playerOneTurn; //changes every turn
+		int turnsPassed; // 0 to a lot
+		vector<Card> cMinions; // empty initially, minions on board
+		vector<Card> cHandOne, cHandTwo; //also initially empty, cards in hands
 		
-		int getPlayerTurn() {return playerTurn;}
-		void changePlayerTurn();
+		void cycleHand(bool);
+	public:
+		GameState();
+		void getLives(int&, int&);
+		void changeLives(int, int);
+		
+		bool getPlayerTurn() {return playerOneTurn;}
+		void changePlayerTurn() {playerOneTurn = !playerOneTurn;}
 		
 		int getTurnsPassed() {return turnsPassed;}
 		void turnOver() {turnsPassed++;}
 		
 		void getMinions(vector<Card>& minions) {minions = cMinions;}
-		void playMinion(Card minion, int slot);
+		void playMinion(Card, int);
+		
+		void getHandCards(vector<Card>&, bool);
+		void addHandCard(Card);
 };
 
 #endif

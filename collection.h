@@ -15,8 +15,7 @@ class Collection {
 		map<Card,void(*)(GameState)> cards;
 		int livesOne, livesTwo; // Technically global variables
 	public:
-		Collection(bool first) {if(first) {populate();}}
-		void populate();
+		Collection(bool first);
 		//Card defineCard(int number);
 		void drawCard(int number);
 		
