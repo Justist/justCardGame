@@ -15,3 +15,4 @@ int Card::getMinionDefense() {return minionDefense;}
 void Card::setMinionAttack(int newAttack) {minionAttack = newAttack;}
 
 void Card::setMinionDefense(int newDefense) {minionDefense = newDefense;}
+

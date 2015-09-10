@@ -14,8 +14,11 @@ class GameState {
 		int turnsPassed; // 0 to a lot
 		vector<Card> cMinions; // empty initially, minions on board
 		vector<Card> cHandOne, cHandTwo; //also initially empty, cards in hands
+		int const static MAX_HAND_SIZE = 8;
+		int const static MAX_MINIONS_AMOUNT = 10;
 		
 		void cycleHand(bool);
+		Card emptyCard; //should be const or alike, gives lots of errors then though
 	public:
 		GameState();
 		void getLives(int&, int&);
@@ -31,7 +34,8 @@ class GameState {
 		void playMinion(Card, int);
 		
 		void getHandCards(vector<Card>&, bool);
-		void addHandCard(Card);
+		void addHandCard(Card, bool);
+		void emptyHand(vector<Card>&);
 };
 
 #endif

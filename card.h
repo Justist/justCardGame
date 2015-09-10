@@ -15,6 +15,7 @@ class Card {
 		int minionAttack;
 		int minionDefense;
 	public:
+		Card() {number = 0; text = ""; isMinion = false;}
 		Card(int n, string t, bool i) : number(n), text(t), isMinion(i) {}
 		int getNumber();
 		string getText();
@@ -24,6 +25,9 @@ class Card {
 		int getMinionDefense();
 		void setMinionAttack(int newAttack);
 		void setMinionDefense(int newDefense);
+		
+		//numbers are (or should be) unique, hurray!
+		bool operator==(Card& card) {return getNumber() == card.getNumber();}
 };
 
 #endif

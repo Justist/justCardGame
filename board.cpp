@@ -34,11 +34,6 @@ void Board::drawVerticalLines(GameState state) {
 	}
 }
 
-//bool Board::updateGameState(GameState gState) {
-//	state = gState;
-//	return true;
-//}
-
 void Board::drawSlot(GameState state, int slot, int space) {
 	// Draw space spaces, and in the middle 3 a minion if applicable
 	

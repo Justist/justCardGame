@@ -11,6 +11,8 @@ void Gameplay::startTheGame() {
 	Board board(height, length, gamestate);
 	Collection collection(true);
 	
+	
+	
 	if(!playGame(gamestate, collection)) {
 		cout << "Something went wrong, please contact someone." << endl;
 	}
