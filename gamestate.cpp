@@ -59,7 +59,7 @@ void GameState::addHandCard(Card newCard, bool one) {
 	
 	if(hand[hand.size()] == emptyCard) {
 		for(unsigned i = 0; i < hand.size(); i++) {
-			if(hand[i] == emptyCard) {hand[i] = newCard}
+			if(hand[i] == emptyCard) {hand[i] = newCard;}
 		}
 	} //else discard
 }
