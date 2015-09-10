@@ -50,9 +50,16 @@ void GameState::emptyHand(vector<Card>& hand) {
 	}
 }
 
-void GameState::addHandCard(Card card, bool one) {
+void GameState::addHandCard(Card newCard, bool one) {
 	cycleHand(one);
 	vector<Card> hand;
+	
 	if(one) {hand = cHandOne;}
 	else {hand = cHandTwo;}
+	
+	if(hand[hand.size()] == emptyCard) {
+		for(unsigned i = 0; i < hand.size(); i++) {
+			if(hand[i] == emptyCard) {hand[i] = newCard}
+		}
+	} //else discard
 }
