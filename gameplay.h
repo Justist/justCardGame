@@ -10,11 +10,10 @@ using namespace std;
 
 class Gameplay {
 	private:
-		void startTheGame();
 		bool playGame(GameState&, Collection&);
 		bool playTurn(GameState&, Collection&);
 	public:
-		Gameplay() {startTheGame();}
+		Gameplay();
 };
 
 #endif

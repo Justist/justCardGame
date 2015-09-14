@@ -1,6 +1,6 @@
 #include "gameplay.h"
 
-void Gameplay::startTheGame() {
+Gameplay::Gameplay() {
 	int height, length;
 	cout << "Board height is: " << endl;
 	cin >> height;
@@ -31,5 +31,6 @@ bool Gameplay::playGame(GameState& state, Collection& coll) {
 }
 
 bool Gameplay::playTurn(GameState& state, Collection& coll) {
+	//TODO!
 	return 1; //if winstate, return 0
 }

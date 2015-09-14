@@ -19,9 +19,8 @@ class Collection {
 		//Card defineCard(int number);
 		void drawCard(int number);
 		
-		// Card functions
+		// Card functions: minions dont require functions
 		void Rock(GameState&);
-		void Imp(GameState&);
 		
 		//bool updateGameState(GameState);
 };
