@@ -36,7 +36,42 @@ void Board::drawVerticalLines(GameState state) {
 
 void Board::drawSlot(GameState state, int slot, int space) {
 	// Draw space spaces, and in the middle 3 a minion if applicable
+	vector<Card> minions;
+	int spaceNextToMinion, i, spaceBetweenStats, spaceForMinion;
+	Card emptyCard;
+	state.getMinions(minions);
+	Card minion;
+	minion = minions[slot];
 	
+	// No minion to 'draw'
+	if(minion == emptyCard || !minion.getIsMinion()) {
+		for(i = 0; i < space; i++) {
+			cout << " ";
+		}
+		return;
+	}
+	
+	// Even amount of spaces to 'fill', at least 4, so we need to draw 
+	// attack, 2 spaces, defense
+	if(space % 2 == 0) {
+		spaceForMinion = 4;
+		spaceBetweenStats = 2;
+	} else {
+		spaceForMinion = 3;
+		spaceBetweenStats = 1;
+	}
+	spaceNextToMinion = (space - spaceForMinion) / 2;
+	for(i = 0; i < spaceNextToMinion; i++) {
+		cout << " ";
+	}
+	cout << minion.getMinionAttack();
+	for(i = 0; i < spaceBetweenStats; i++) {
+		cout << " ";
+	}
+	cout << minion.getMinionDefense();
+	for(i = 0; i < spaceNextToMinion; i++) {
+		cout << " ";
+	}
 }
 
 void Board::drawBoard(GameState state) {

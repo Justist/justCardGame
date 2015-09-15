@@ -1,14 +1,21 @@
 #include "gamestate.h"
 
+// Just for testing purposes
+void printCardVector(vector<Card> vec) {
+	for(unsigned i = 0; i < vec.size(); i++) {
+		cout << vec[i].getText() << endl;
+	}
+}
+
 GameState::GameState() {
 	playerOneLives = playerTwoLives = 30;
 	turnsPassed = 0;
 	playerOneTurn = 1; // RNG decides in the future
 	Card card;
 	cMinions = cHandOne = cHandTwo = {};
-	cHandOne.resize(MAX_HAND_SIZE);
-	cHandTwo.resize(MAX_HAND_SIZE);
-	cMinions.resize(MAX_MINIONS_AMOUNT);
+	cHandOne.resize(MAX_HAND_SIZE, emptyCard);
+	cHandTwo.resize(MAX_HAND_SIZE, emptyCard);
+	cMinions.resize(MAX_MINIONS_AMOUNT, emptyCard);
 }
 
 void GameState::getLives(int& one, int& two) {
