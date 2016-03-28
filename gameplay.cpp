@@ -2,13 +2,14 @@
 
 Gameplay::Gameplay() {
 	int height, length;
-	cout << "Board height is: " << endl;
+	cout << "Give board height: " << endl;
 	cin >> height;
-	cout << "Board length is: " << endl;
+	cout << "Give board length: " << endl;
 	cin >> length;
 	
 	GameState gamestate;
 	Board board(height, length, gamestate);
+	board.redrawBoard();
 	Collection collection(true);
 	
 	

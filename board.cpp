@@ -62,3 +62,9 @@ void Board::printLives(GameState state) {
 	state.getLives(one, two);
 	// TODO
 }
+
+void Board::redrawBoard() {
+	printf("\33[%dA\r", boardHeight);
+	printf("\33[2K\r");
+	printf("HALLO!\n\n\n\n\n");
+}

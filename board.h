@@ -21,6 +21,7 @@ class Board {
 		
 		void drawSlot(GameState, int, int);
 		
+		void redrawBoard();
 		//bool updateGameState(GameState gState);
 };
 
