@@ -1,4 +1,4 @@
 language: cpp
 compiler: gcc
 os: linux
-install: make all
+script: make all
