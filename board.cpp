@@ -34,9 +34,20 @@ void Board::drawVerticalLines(GameState state) {
 	}
 }
 
+void Board::drawMinion(GameState state, int slot) {
+	Card minion = state.getMinion(slot);
+	printf("%d %d", minion.getMinionAttack(), minion.getMinionDefense());
+}
+
 void Board::drawSlot(GameState state, int slot, int space) {
 	// Draw space spaces, and in the middle 3 a minion if applicable
-	
+	if(space == 3) { drawMinion(state, slot); }
+	else {
+		int spaceAroundMinion = (space - 3) / 2;
+		cursorRight(spaceAroundMinion);
+		drawMinion(state, slot);
+		cursorRight(spaceAroundMinion);	
+	}
 }
 
 void Board::drawBoard(GameState state) {
@@ -63,8 +74,14 @@ void Board::printLives(GameState state) {
 	// TODO
 }
 
+void Board::cursorUp(int x) { printf("\33[%dA\r", x); }
+
+void Board::cursorDown(int x) { printf("\33[%dB\r", x); }
+
+void Board::cursorRight(int x) { printf("\33[%dC", x); }
+
+void Board::cursorLeft(int x) { printf("\33[%dD", x); }
+
 void Board::redrawBoard() {
-	printf("\33[%dA\r", boardHeight);
-	printf("\33[2K\r");
-	printf("HALLO!\n\n\n\n\n");
+	
 }

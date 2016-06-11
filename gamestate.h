@@ -31,6 +31,7 @@ class GameState {
 		void turnOver() {turnsPassed++;}
 		
 		void getMinions(vector<Card>& minions) {minions = cMinions;}
+		Card getMinion(int);
 		void playMinion(Card, int);
 		
 		void getHandCards(vector<Card>&, bool);

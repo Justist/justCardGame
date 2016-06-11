@@ -19,7 +19,13 @@ class Board {
 		void drawBoard(GameState);
 		void printLives(GameState);
 		
+		void drawMinion(GameState, int);
 		void drawSlot(GameState, int, int);
+		
+		void cursorUp(int);
+		void cursorDown(int);
+		void cursorRight(int);
+		void cursorLeft(int);
 		
 		void redrawBoard();
 		//bool updateGameState(GameState gState);

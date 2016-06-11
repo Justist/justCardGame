@@ -1,33 +1,42 @@
-OBJS = main.o board.o collection.o gamestate.o card.o gameplay.o #update.o #error.o
+#OBJS = main.o board.o collection.o gamestate.o card.o gameplay.o 
+#update.o #error.o
 CC = g++
 DEBUG = -ggdb
-STD = -std=c++0x
+STD = -std=c++11
 ERROR = -Wall -Wextra
-CFLAGS = $(ERROR) $(STD) -c $(DEBUG)
+CFLAGS = $(ERROR) $(STD) $(DEBUG) -c
 LFLAGS = $(ERROR)
 EXE = game
+SOURCES = $(wildcard *.cpp)
+OBJECTS = $(SOURCES:.cpp=.o)
 
-all : $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) -o $(EXE)
-	
-main.o : main.cpp board.h collection.h gamestate.h
-	$(CC) $(CFLAGS) main.cpp
+$(EXE): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(EXE)
 
-board.o : board.h board.cpp gamestate.h
-	$(CC) $(CFLAGS) board.cpp
-	
-collection.o : collection.h collection.cpp card.h gamestate.h
-	$(CC) $(CFLAGS) collection.cpp
+%.o: %.cpp
+	$(CC) $(CFLAGS) $< -o $@
 
-gamestate.o : gamestate.h gamestate.cpp error.h
-	$(CC) $(CFLAGS) gamestate.cpp
-
-card.o : card.h card.cpp
-	$(CC) $(CFLAGS) card.cpp
-
-gameplay.o : gameplay.h gameplay.cpp collection.h gamestate.h
-	$(CC) $(CFLAGS) gameplay.cpp
-
+#all : $(OBJS)
+#	$(CC) $(LFLAGS) $(OBJS) -o $(EXE)
+#	
+#main.o : main.cpp board.h collection.h gamestate.h
+#	$(CC) $(CFLAGS) main.cpp
+#
+#board.o : board.h board.cpp gamestate.h
+#	$(CC) $(CFLAGS) board.cpp
+#	
+#collection.o : collection.h collection.cpp card.h gamestate.h
+#	$(CC) $(CFLAGS) collection.cpp
+#
+#gamestate.o : gamestate.h gamestate.cpp error.h
+#	$(CC) $(CFLAGS) gamestate.cpp
+#
+#card.o : card.h card.cpp
+#	$(CC) $(CFLAGS) card.cpp
+#
+#gameplay.o : gameplay.h gameplay.cpp collection.h gamestate.h
+#	$(CC) $(CFLAGS) gameplay.cpp
+#
 #update.o : update.h update.cpp board.h gamestate.h collection.h
 #	$(CC) $(CFLAGS) update.cpp
 

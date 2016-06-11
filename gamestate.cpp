@@ -21,6 +21,10 @@ void GameState::changeLives(int one, int two) {
 	playerTwoLives -= two;
 }
 
+Card GameState::getMinion(int slot) {
+	return cMinions[((playerOneTurn * 5) + slot) - 1];
+}
+
 void GameState::playMinion(Card minion, int slot) {
 	cMinions[((playerOneTurn * 5) + slot) - 1] = minion;
 }

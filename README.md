@@ -1,5 +1,6 @@
 # justCardGame
-A ASCII-based card game I decided to implement in C++. For now mostly lacks playability.
+An ASCII-based card game I decided to implement in C++. For now 
+mostly lacks playability.
 
 # Prerequisites
 
@@ -20,7 +21,7 @@ To download the source via Git one opens a terminal and gives the following comm
 
 To compile the source the following command must be given in the terminal:
 
-    $ make all
+    $ make
 
 # Run the program
 
