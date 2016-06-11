@@ -27,7 +27,7 @@ To compile the source the following command must be given in the terminal:
 
 To run the program the following command must be given in the terminal:
 
-    $ ./game
+    $ make run
 
 # License
 
