@@ -1,6 +1,9 @@
 #ifndef GAMESTATE_H
 #define GAMESTATE_H
 
+#define MAXHANDSIZE 8
+#define MAXMINIONSAMOUNT 10
+
 #include <iostream>
 #include <vector>
 #include "error.h"
@@ -10,27 +13,24 @@ class GameState {
 
 	private:
 		int playerOneLives, playerTwoLives; // 30 30 initially
+		Card emptyCard; //should be const or alike, gives lots of errors then though
 		bool playerOneTurn; //changes every turn
 		int turnsPassed; // 0 to a lot
 		vector<Card> cMinions; // empty initially, minions on board
-		vector<Card> cHandOne, cHandTwo; //also initially empty, cards in hands
-		int const static MAX_HAND_SIZE = 8;
-		int const static MAX_MINIONS_AMOUNT = 10;
-		
+		vector<Card> cHandOne, cHandTwo;
 		void cycleHand(bool);
-		Card emptyCard; //should be const or alike, gives lots of errors then though
 	public:
 		GameState();
 		void getLives(int&, int&);
 		void changeLives(int, int);
 		
-		bool getPlayerTurn() {return playerOneTurn;}
-		void changePlayerTurn() {playerOneTurn = !playerOneTurn;}
+		bool getPlayerTurn() { return playerOneTurn; }
+		void changePlayerTurn() { playerOneTurn = !playerOneTurn; }
 		
-		int getTurnsPassed() {return turnsPassed;}
-		void turnOver() {turnsPassed++;}
+		int getTurnsPassed() { return turnsPassed; }
+		void turnOver() { turnsPassed++; }
 		
-		void getMinions(vector<Card>& minions) {minions = cMinions;}
+		void getMinions(vector<Card>& minions) { minions = cMinions; }
 		Card getMinion(int);
 		void playMinion(Card, int);
 		

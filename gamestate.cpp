@@ -4,11 +4,11 @@ GameState::GameState() {
 	playerOneLives = playerTwoLives = 30;
 	turnsPassed = 0;
 	playerOneTurn = 1; // RNG decides in the future
-	Card card;
-	cMinions = cHandOne = cHandTwo = {};
-	cHandOne.resize(MAX_HAND_SIZE);
-	cHandTwo.resize(MAX_HAND_SIZE);
-	cMinions.resize(MAX_MINIONS_AMOUNT);
+	cMinions.resize(MAXMINIONSAMOUNT);
+	cHandOne.resize(MAXHANDSIZE);
+	cHandTwo.resize(MAXHANDSIZE);
+	for(int i = 0; i < MAXMINIONSAMOUNT; i++) { cMinions[i] = emptyCard; }
+	for(int j = 0; j < MAXHANDSIZE; j++) { cHandOne[j] = emptyCard; cHandTwo[j] = emptyCard; }
 }
 
 void GameState::getLives(int& one, int& two) {
@@ -16,9 +16,14 @@ void GameState::getLives(int& one, int& two) {
 	two = playerTwoLives;
 }
 
-void GameState::changeLives(int one, int two) {
-	playerOneLives -= one;
-	playerTwoLives -= two;
+void GameState::changeLives(int current, int other) {
+	if(playerOneTurn) {
+		playerOneLives -= current;
+		playerTwoLives -= other;
+	} else {
+		playerOneLives -= other;
+		playerTwoLives -= current;
+	}
 }
 
 Card GameState::getMinion(int slot) {
@@ -26,7 +31,7 @@ Card GameState::getMinion(int slot) {
 }
 
 void GameState::playMinion(Card minion, int slot) {
-	cMinions[((playerOneTurn * 5) + slot) - 1] = minion;
+	if(minion.getIsMinion()) { cMinions[((playerOneTurn * 5) + slot) - 1] = minion; }
 }
 
 void GameState::getHandCards(vector<Card>& handCards, bool one) {

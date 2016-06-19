@@ -16,7 +16,10 @@ class Card {
 		int minionDefense;
 	public:
 		Card() {number = 0; text = ""; isMinion = false;} //initialiser for empty cards
-		Card(int n, string t, bool i) : number(n), text(t), isMinion(i) {}
+		//Not a minion
+		Card(int n, string t) : number(n), text(t), isMinion(false) {}
+		//Minion
+		Card(int n, string t, int a, int d) : number(n), text(t), isMinion(true), minionAttack(a), minionDefense(d) {}
 		int getNumber();
 		string getText();
 		bool getIsMinion();

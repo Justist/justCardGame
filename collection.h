@@ -21,6 +21,7 @@ class Collection {
 		
 		// Card functions: minions dont require functions
 		void Rock(GameState&);
+		void Firestorm(GameState &);
 		
 		//bool updateGameState(GameState);
 };

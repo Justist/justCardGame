@@ -4,7 +4,7 @@ CC = g++
 DEBUG = -ggdb
 STD = -std=c++11
 ERROR = -Wall -Wextra
-CFLAGS = $(ERROR) $(STD) $(DEBUG) -c
+CFLAGS = $(ERROR) $(STD) $(DEBUG)
 LFLAGS = $(ERROR)
 EXE = game
 SOURCES = $(wildcard *.cpp)
@@ -14,7 +14,7 @@ $(EXE): $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(EXE)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) -c $(CFLAGS) $< -o $@
 	
 run:
 	./game
