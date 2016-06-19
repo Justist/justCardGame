@@ -7,7 +7,7 @@ mostly lacks playability.
 To download and compile the code, the following tools are required:
 * A recent version of Git, although the download button on the right of the repository can also be used.
 * A Linux distribution operating system.
-* GCC 4.6 or higher.
+* GCC 5.0 or higher.
 * GNU make 4.1 or higher (by default installed on most Linux distributions).
 
 # Downloading the source
