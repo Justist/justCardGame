@@ -1,5 +1,6 @@
 # justCardGame
 [![Build Status](https://travis-ci.com/Justist/justCardGame.svg?branch=master)](https://travis-ci.com/Justist/justCardGame)
+
 An ASCII-based card game I decided to implement in C++. For now 
 mostly lacks playability.
 
