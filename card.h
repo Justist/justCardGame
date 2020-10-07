@@ -2,7 +2,7 @@
 #define CARD_H
 
 #include <iostream>
-#include <cstd::string>
+#include <cstring>
 #include <utility>
 
 class Card {
