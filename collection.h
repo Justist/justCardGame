@@ -10,7 +10,7 @@
 
 class Collection {
 	private:
-		map<Card,void(*)(GameState)> cards;
+		std::map<Card,void(*)(GameState)> cards;
 		int livesOne{}, livesTwo{}; // Technically global variables
 	public:
 		explicit Collection(bool first);
