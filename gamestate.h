@@ -16,27 +16,27 @@ class GameState {
 		Card emptyCard; //should be const or alike, gives lots of errors then though
 		bool playerOneTurn; //changes every turn
 		int turnsPassed; // 0 to a lot
-		vector<Card> cMinions; // empty initially, minions on board
-		vector<Card> cHandOne, cHandTwo;
+      std::vector<Card> cMinions; // empty initially, minions on board
+      std::vector<Card> cHandOne, cHandTwo;
 		void cycleHand(bool);
 	public:
 		GameState();
-		void getLives(int&, int&);
+		void getLives(int&, int&) const;
 		void changeLives(int, int);
 		
-		bool getPlayerTurn() { return playerOneTurn; }
+		bool getPlayerTurn() const { return playerOneTurn; }
 		void changePlayerTurn() { playerOneTurn = !playerOneTurn; }
 		
-		int getTurnsPassed() { return turnsPassed; }
+		int getTurnsPassed() const { return turnsPassed; }
 		void turnOver() { turnsPassed++; }
 		
-		void getMinions(vector<Card>& minions) { minions = cMinions; }
+		void getMinions(std::vector<Card>& minions) { minions = cMinions; }
 		Card getMinion(int);
-		void playMinion(Card, int);
+		void playMinion(const Card&, int);
 		
-		void getHandCards(vector<Card>&, bool);
-		void addHandCard(Card, bool);
-		void emptyHand(vector<Card>&);
+		void getHandCards(std::vector<Card>&, bool);
+		void addHandCard(const Card&, bool);
+		void emptyHand(std::vector<Card>&);
 };
 
 #endif

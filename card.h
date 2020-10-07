@@ -2,35 +2,36 @@
 #define CARD_H
 
 #include <iostream>
-#include <cstring>
-
-using namespace std;
+#include <cstd::string>
+#include <utility>
 
 class Card {
 	private:
 		int number;
-		string text;
+		std::string text;
 		bool isMinion;
 		// Only in case it is a minion
-		int minionAttack;
-		int minionDefense;
+		int minionAttack{};
+		int minionDefense{};
 	public:
-		Card() {number = 0; text = ""; isMinion = false;} //initialiser for empty cards
+		Card() {number = 0; text = ""; isMinion = false;} //constructor for empty cards
 		//Not a minion
-		Card(int n, string t) : number(n), text(t), isMinion(false) {}
+		Card(int n, std::string t) : number(n), text(std::move(t)), isMinion(false) {}
 		//Minion
-		Card(int n, string t, int a, int d) : number(n), text(t), isMinion(true), minionAttack(a), minionDefense(d) {}
-		int getNumber();
-		string getText();
-		bool getIsMinion();
+		Card(int n, std::string t, int a, int d) : number(n), text(std::move(t)), isMinion(true), minionAttack(a), minionDefense(d) {}
+		~Card() = default;
 		
-		int getMinionAttack();
-		int getMinionDefense();
+		int getNumber() const;
+		std::string getText();
+		bool getIsMinion() const;
+		
+		int getMinionAttack() const;
+		int getMinionDefense() const;
 		void setMinionAttack(int newAttack);
 		void setMinionDefense(int newDefense);
 		
 		//numbers are (or should be) unique, hurray!
-		bool operator==(Card& card) {return getNumber() == card.getNumber();}
+		bool operator==(Card& card) const {return getNumber() == card.getNumber();}
 };
 
 #endif

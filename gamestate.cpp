@@ -3,7 +3,7 @@
 GameState::GameState() {
 	playerOneLives = playerTwoLives = 30;
 	turnsPassed = 0;
-	playerOneTurn = 1; // RNG decides in the future
+	playerOneTurn = true; // RNG decides in the future
 	cMinions.resize(MAXMINIONSAMOUNT);
 	cHandOne.resize(MAXHANDSIZE);
 	cHandTwo.resize(MAXHANDSIZE);
@@ -11,7 +11,7 @@ GameState::GameState() {
 	for(int j = 0; j < MAXHANDSIZE; j++) { cHandOne[j] = emptyCard; cHandTwo[j] = emptyCard; }
 }
 
-void GameState::getLives(int& one, int& two) {
+void GameState::getLives(int& one, int& two) const {
 	one = playerOneLives;
 	two = playerTwoLives;
 }
@@ -30,17 +30,17 @@ Card GameState::getMinion(int slot) {
 	return cMinions[((playerOneTurn * 5) + slot) - 1];
 }
 
-void GameState::playMinion(Card minion, int slot) {
+void GameState::playMinion(const Card& minion, int slot) {
 	if(minion.getIsMinion()) { cMinions[((playerOneTurn * 5) + slot) - 1] = minion; }
 }
 
-void GameState::getHandCards(vector<Card>& handCards, bool one) {
+void GameState::getHandCards(std::vector<Card>& handCards, bool one) {
 	if(one) {handCards = cHandOne;}
 	else {handCards = cHandTwo;}
 }
 
 void GameState::cycleHand(bool one) {
-	vector<Card> hand;
+	std::vector<Card> hand;
 	
 	if(one) {hand = cHandOne;}
 	else {hand = cHandTwo;}
@@ -53,22 +53,22 @@ void GameState::cycleHand(bool one) {
 	}
 }
 
-void GameState::emptyHand(vector<Card>& hand) {
-	for(unsigned i = 0; i < hand.size(); i++) {
-		hand[i] = emptyCard;
+void GameState::emptyHand(std::vector<Card>& hand) {
+	for(auto & i : hand) {
+		i = emptyCard;
 	}
 }
 
-void GameState::addHandCard(Card newCard, bool one) {
+void GameState::addHandCard(const Card& newCard, bool one) {
 	cycleHand(one);
-	vector<Card> hand;
+	std::vector<Card> hand;
 	
 	if(one) {hand = cHandOne;}
 	else {hand = cHandTwo;}
 	
 	if(hand[hand.size()] == emptyCard) {
-		for(unsigned i = 0; i < hand.size(); i++) {
-			if(hand[i] == emptyCard) {hand[i] = newCard;}
+		for(auto & i : hand) {
+			if(i == emptyCard) { i = newCard; }
 		}
 	} //else discard
 }

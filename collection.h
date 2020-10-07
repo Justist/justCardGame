@@ -8,16 +8,13 @@
 #include "card.h"
 #include "gamestate.h"
 
-using namespace std;
-
 class Collection {
 	private:
 		map<Card,void(*)(GameState)> cards;
-		int livesOne, livesTwo; // Technically global variables
+		int livesOne{}, livesTwo{}; // Technically global variables
 	public:
-		Collection(bool first);
+		explicit Collection(bool first);
 		//Card defineCard(int number);
-		void drawCard(int number);
 		
 		// Card functions: minions dont require functions
 		void Rock(GameState&);

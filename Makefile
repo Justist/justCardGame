@@ -10,12 +10,15 @@ EXE = game
 SOURCES = $(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
+all: $(EXE)
+.PHONY: all
+
 $(EXE): $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(EXE)
 
 %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
-	
+
 run:
 	./game
 

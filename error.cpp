@@ -1,9 +1,9 @@
 #include "error.h"
 
-/*template <class T>
-void Error<T>::printVars(initializer_list<T> list) {
+template <class T>
+__attribute((unused)) void Error<T>::printVars(std::initializer_list<T> list) {
 	for(auto elem : list) {
-		cout << elem << " ";
+		std::cout << elem << " ";
 	}
-	cout << endl;
-}*/
+	std::cout << std::endl;
+}

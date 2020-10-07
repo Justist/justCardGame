@@ -4,16 +4,13 @@
 #include <iostream>
 #include <initializer_list>
 
-using namespace std;
-
 template<class T>
 class Error {
 	public:
-		Error() {}
+		Error() = default;
+		~Error() = default;
 		
-		void printVars(initializer_list<T> list);
+		void printVars(std::initializer_list<T> list);
 };
-
-#include "error.cpp"
 
 #endif
